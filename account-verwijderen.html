@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Account en gegevens verwijderen — BelSafe</title>
+<meta name="description" content="Zo verwijdert u uw BelSafe-account en al uw gegevens: rechtstreeks in de app, of per e-mail naar info@belsafe.eu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: cool (civic blue)
+ * theme: inherited (belsafe.eu house system — geen nieuw thema opgelegd)
+ * pre-emit critique: P5 H5 E4 S5 R5 V4
+ * enrichment: none (typography only) · motion: none
+ */
+
+:root{
+  --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260;
+  --b050:#EFF4FF; --b100:#DBE7FF; --b200:#BFD3FF;
+  --ink:#0B1220; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
+  --r:16px; --max:1140px; --measure:64ch;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:#fff;line-height:1.68;-webkit-font-smoothing:antialiased;
+  font-size:19px}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+.mark{font-weight:800;letter-spacing:-.025em;font-size:25px}
+.mark .a{color:var(--b600)} .mark .b{color:var(--ink)}
+.mark.inv .a{color:#8FB4FF} .mark.inv .b{color:#fff}
+:focus-visible{outline:3px solid var(--b600);outline-offset:3px;border-radius:4px}
+
+/* header — identiek aan de rest van de site */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-size:16px;font-weight:500;color:var(--slate);white-space:nowrap}
+.navlinks a:hover{color:var(--b600)}
+@media(max-width:760px){ .navlinks{display:none} }
+
+/* kop van de pagina */
+.pagehead{background:var(--b050);border-bottom:1px solid var(--b100);padding:56px 0 48px}
+.pagehead .inner{max-width:var(--measure)}
+.crumb{font-size:16px;font-weight:600;color:var(--b700);margin-bottom:16px;display:inline-block}
+.crumb:hover{text-decoration:underline}
+h1{font-size:clamp(30px,4.2vw,44px);line-height:1.14;letter-spacing:-.03em;font-weight:800;
+  margin-bottom:16px;overflow-wrap:anywhere;min-width:0}
+.lead{font-size:21px;color:var(--slate);line-height:1.62}
+
+/* documentkolom */
+main{padding:56px 0 0}
+.doc{max-width:var(--measure)}
+h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.22;
+  margin-bottom:16px;overflow-wrap:anywhere;min-width:0}
+.doc section{padding-bottom:48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
+.doc section:last-of-type{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.doc p{margin-bottom:16px}
+.doc p:last-child{margin-bottom:0}
+
+/* de twee manieren */
+.way{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:start;
+  padding:24px;border:1.6px solid var(--line);border-radius:var(--r);margin-bottom:24px}
+.way:last-of-type{margin-bottom:0}
+.way .n{width:48px;height:48px;border-radius:10px;background:var(--b600);color:#fff;
+  font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;line-height:1}
+.way h3{font-size:23px;font-weight:700;letter-spacing:-.015em;margin-bottom:12px;line-height:1.3}
+.way p{font-size:19px;color:var(--ink);margin-bottom:16px}
+.way p:last-child{margin-bottom:0}
+.path{display:inline-block;background:var(--b050);border:1px solid var(--b100);border-radius:10px;
+  padding:8px 16px;font-weight:600;color:var(--b800);font-size:19px;margin:0 0 16px;
+  line-height:1.5}
+.mailto{display:inline-block;font-weight:700;color:var(--b700);font-size:19px;
+  border-bottom:2px solid var(--b200);padding-bottom:1px;white-space:nowrap}
+.mailto:hover{border-bottom-color:var(--b700)}
+@media(max-width:520px){
+  .way{grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 16px}
+  .way .n{width:40px;height:40px;font-size:20px}
+}
+
+/* gegevenslijst */
+.datalist{list-style:none;display:flex;flex-direction:column}
+.datalist li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start;
+  padding:16px 0;border-bottom:1px solid var(--line);font-size:19px}
+.datalist li:last-child{border-bottom:0}
+.datalist .dot{width:9px;height:9px;border-radius:50%;background:var(--b600);
+  flex-shrink:0;margin-top:11px}
+
+/* footer — identiek aan de rest van de site */
+footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+.fabout p{font-size:15px;color:#B9CDF5;margin-top:12px;max-width:270px;line-height:1.6}
+.fcol h4{font-size:13.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:#8FB4FF;margin-bottom:15px}
+.fcol a{display:block;font-size:15.5px;color:#DCE8FF;margin-bottom:11px;transition:color .14s}
+.fcol a:hover{color:#fff}
+.fcol a[aria-current="page"]{color:#fff;font-weight:600}
+.fbottom{border-top:1px solid rgba(255,255,255,.15);padding:20px 0 26px;display:flex;
+  justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14px;color:#A8C2F0}
+@media(max-width:900px){ .fgrid{grid-template-columns:1fr 1fr;gap:32px} }
+@media(max-width:520px){ .fgrid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="mark"><span class="a">Bel</span><span class="b">Safe</span></a>
+    <nav class="navlinks">
+      <a href="index.html#bescherming">Bescherming</a>
+      <a href="index.html#eerlijk">Onze aanpak</a>
+      <a href="index.html#app">De app</a>
+    </nav>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <div class="inner">
+      <a href="index.html" class="crumb">&larr; Terug naar de startpagina</a>
+      <h1>Account en gegevens verwijderen</h1>
+      <p class="lead">U kunt uw BelSafe-account en al uw gegevens laten verwijderen. Hieronder leest u
+        hoe dat gaat. Het kost u een paar tikken, of één e-mail.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap doc">
+
+    <section>
+      <h2>Er zijn twee manieren</h2>
+
+      <div class="way">
+        <div class="n">1</div>
+        <div>
+          <h3>In de app</h3>
+          <p>Open BelSafe en ga naar:</p>
+          <span class="path">Instellingen &rsaquo; Account beheer &rsaquo; Account en gegevens verwijderen</span>
+          <p>Voer uw wachtwoord in om te bevestigen. Uw account en alle gegevens worden dan
+            direct en onomkeerbaar verwijderd.</p>
+        </div>
+      </div>
+
+      <div class="way">
+        <div class="n">2</div>
+        <div>
+          <h3>Als u de app niet meer hebt</h3>
+          <p>Stuur een e-mail naar
+            <a class="mailto" href="mailto:info@belsafe.eu?subject=Verzoek%20tot%20verwijdering%20van%20mijn%20account">info@belsafe.eu</a>
+            vanaf het e-mailadres waarmee u zich hebt geregistreerd.</p>
+          <p>Wij verwijderen uw gegevens binnen 30 dagen en bevestigen dat per e-mail.
+            Dit is onomkeerbaar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Welke gegevens worden verwijderd</h2>
+      <ul class="datalist">
+        <li><span class="dot"></span><span>Uw e-mailadres</span></li>
+        <li><span class="dot"></span><span>De nummers die u hebt gemeld</span></li>
+        <li><span class="dot"></span><span>Uw SOS-noodnummer</span></li>
+        <li><span class="dot"></span><span>Uw persoonlijke blokkeerlijst</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Vragen?</h2>
+      <p>Bent u er niet uit, of lukt het niet? Stuur een e-mail naar
+        <a class="mailto" href="mailto:info@belsafe.eu">info@belsafe.eu</a> en wij helpen u verder.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fabout">
+        <div class="mark inv"><span class="a">Bel</span><span class="b">Safe</span></div>
+        <p>Bescherming tegen telefoonfraude. Een Belgisch initiatief, gebouwd met privacy voorop.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="index.html#bescherming">Bescherming</a>
+        <a href="index.html#eerlijk">Onze aanpak</a>
+        <a href="index.html#checker">Nummer checken</a>
+      </div>
+      <div class="fcol">
+        <h4>Juridisch</h4>
+        <a href="#">Privacybeleid</a>
+        <a href="#">Gebruiksvoorwaarden</a>
+        <a href="account-verwijderen.html" aria-current="page">Account verwijderen</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>
+        <a href="mailto:info@belsafe.eu?subject=Een%20probleem%20melden">Een probleem melden</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 BelSafe &middot; belsafe.eu</span>
+      <span>Gemaakt in Belgi&euml;</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
