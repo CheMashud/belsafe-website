@@ -13,6 +13,7 @@
   --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260; --b950:#091845;
   --b050:#EFF4FF; --b100:#DBE7FF; --b200:#BFD3FF;
   --ink:#0B1220; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
+  --body:#1A2332;
   --alert:#DC2626; --warn:#7C3AED; --ok:#15A34A;
   --r:16px; --max:1140px;
 }
@@ -31,7 +32,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);
   backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
 .navlinks{display:flex;gap:30px;align-items:center}
-.navlinks a{font-size:15px;font-weight:500;color:var(--slate)}
+.navlinks a{font-size:16px;font-weight:500;color:var(--body)}
 .navlinks a:hover{color:var(--b600)}
 .cta{display:inline-flex;align-items:center;gap:8px;background:var(--b600);color:#fff!important;
   font-weight:600;font-size:15px;padding:11px 20px;border-radius:11px;border:0;cursor:pointer;
@@ -60,12 +61,12 @@ h1 em{font-style:normal;color:#DCE7FF}
 
 /* checker */
 .checker{background:#fff;border-radius:var(--r);padding:20px;box-shadow:0 2px 10px rgba(15,30,70,.08);max-width:530px}
-.checker label{display:block;font-size:13px;font-weight:700;color:var(--slate);
+.checker label{display:block;font-size:13px;font-weight:700;color:var(--body);
   text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px}
 .crow{display:flex;gap:9px}
 .crow input{flex:1;padding:14px 15px;border:1.6px solid var(--line);border-radius:11px;
   font-size:16px;font-family:inherit;color:var(--ink);outline:none;transition:border .14s,box-shadow .14s}
-.crow input::placeholder{color:var(--mute)}
+.crow input::placeholder{color:var(--slate)}
 .crow input:focus{border-color:var(--b600);box-shadow:0 0 0 3px var(--b100)}
 .cres{margin-top:13px;display:none}
 .cres.on{display:block}
@@ -73,7 +74,7 @@ h1 em{font-style:normal;color:#DCE7FF}
 .rcard b{display:block;margin-bottom:2px}
 .r-info{background:var(--b050);border:1px solid var(--b200);color:var(--b800)}
 .r-warn{background:#FFF7ED;border:1px solid #FED7AA;color:#9A3412}
-.fineprint{font-size:12px;color:#64748B;margin-top:11px;line-height:1.5}
+.fineprint{font-size:14px;color:var(--body);margin-top:11px;line-height:1.5}
 
 /* phone mock */
 .phonewrap{display:flex;justify-content:center;perspective:1400px}
@@ -109,10 +110,10 @@ section{padding:86px 0}
 .shead .logomark{width:76px;height:76px;margin:0 auto 20px;display:block}
 .shead .logomark img{width:100%;height:100%;border-radius:19px;display:block;
   box-shadow:0 12px 28px rgba(37,99,235,.26)}
-.shead h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-.035em;
+.shead h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.035em;
   line-height:1.12;margin-bottom:16px;color:var(--ink)}
 .shead h2 .a{color:var(--b600)}
-.shead p{font-size:17px;color:var(--slate);max-width:520px;margin:0 auto;line-height:1.65}
+.shead p{font-size:17px;color:var(--body);max-width:520px;margin:0 auto;line-height:1.65}
 
 /* protection list */
 .plist{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
@@ -124,8 +125,8 @@ section{padding:86px 0}
 .pi-purple{background:#EDE9FE;color:var(--warn)}
 .pi-blue{background:var(--b100);color:var(--b700)}
 .pi-green{background:#DCFCE7;color:var(--ok)}
-.pitem h3{font-size:20px;font-weight:700;margin-bottom:7px;letter-spacing:-.015em}
-.pitem p{font-size:16px;color:var(--slate)}
+.pitem h3{font-size:22px;font-weight:700;margin-bottom:7px;letter-spacing:-.015em}
+.pitem p{font-size:17px;color:var(--body)}
 .pitem .stress{color:var(--ink);font-weight:600}
 
 /* ---- features carousel ---- */
@@ -139,12 +140,12 @@ section{padding:86px 0}
 .fscreen{background:#EEF3FC;border-radius:18px;overflow:hidden;height:330px;position:relative;
   display:flex;flex-direction:column;font-size:9px;text-align:left}
 .feat .flabel{display:inline-flex;align-items:center;gap:7px;margin-top:18px;background:#EDF1F7;
-  color:var(--slate);font-weight:700;font-size:14px;padding:11px 18px;border-radius:999px;
+  color:var(--body);font-weight:700;font-size:16px;padding:11px 18px;border-radius:999px;
   transition:background .25s,color .25s;line-height:1.2}
 .feat.on .flabel{background:var(--b600);color:#fff}
 .feat .flabel svg{opacity:0;width:0;transition:opacity .25s,width .25s}
 .feat.on .flabel svg{opacity:1;width:14px}
-.feat .fdesc{font-size:13.5px;color:var(--slate);margin-top:11px;line-height:1.5;padding:0 6px}
+.feat .fdesc{font-size:16px;color:var(--body);margin-top:11px;line-height:1.5;padding:0 6px}
 
 /* app chrome inside mock */
 .appbar{background:#fff;padding:8px 9px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #E6ECF6}
@@ -262,9 +263,9 @@ section{padding:86px 0}
 /* honesty band */
 .honest{background:var(--b050);border-top:1px solid var(--b100);border-bottom:1px solid var(--b100)}
 .honest .wrap{max-width:820px;text-align:center}
-.honest .q{font-size:clamp(22px,2.8vw,30px);font-weight:800;letter-spacing:-.03em;
+.honest .q{font-size:clamp(24px,3vw,30px);font-weight:800;letter-spacing:-.03em;
   line-height:1.28;margin-bottom:18px;color:var(--ink)}
-.honest p{font-size:17px;color:var(--slate);max-width:600px;margin:0 auto;line-height:1.65}
+.honest p{font-size:17px;color:var(--body);max-width:600px;margin:0 auto;line-height:1.65}
 
 /* app band */
 .appband{background:linear-gradient(150deg,var(--b600) 0%,var(--b800) 100%);border-radius:26px;
@@ -365,12 +366,12 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
               </div>
               <div>
                 <h4>Stop</h4>
-                <p>Mogelijk fraude</p>
+                <p>Zeer verdacht nummer</p>
               </div>
             </div>
             <div class="alertbody">
               <div class="reportline">
-                <span class="n">5×</span>
+                <span class="n">6×</span>
                 <span>gemeld als verdacht door<br>gebruikers van BelSafe</span>
               </div>
               <p class="advice">Neem niet op als u dit nummer niet kent. Geef nooit codes, pincodes of bankgegevens door.</p>
@@ -442,10 +443,10 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
             <div class="warn anim1">
               <div class="warnhd red">
                 <div class="wi"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r=".7" fill="#fff"/><path d="M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0Z"/></svg></div>
-                <div><h5>Stop</h5><p>Mogelijk fraude</p></div>
+                <div><h5>Stop</h5><p>Zeer verdacht nummer</p></div>
               </div>
               <div class="warnbd">
-                <div class="chip red anim2 pulse"><b>5&times;</b><span>gemeld als verdacht door<br>gebruikers van BelSafe</span></div>
+                <div class="chip red anim2 pulse"><b>6&times;</b><span>gemeld als verdacht door<br>gebruikers van BelSafe</span></div>
                 <p class="adv anim3">Neem niet op als u dit nummer niet kent. Geef nooit codes door.</p>
               </div>
             </div>
