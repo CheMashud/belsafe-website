@@ -59,22 +59,8 @@ h1{font-size:clamp(34px,4.4vw,54px);line-height:1.07;letter-spacing:-.035em;font
 h1 em{font-style:normal;color:#DCE7FF}
 .lead{font-size:19px;color:#E8F0FF;max-width:520px;margin-bottom:30px}
 
-/* checker */
-.checker{background:#fff;border-radius:var(--r);padding:20px;box-shadow:0 2px 10px rgba(15,30,70,.08);max-width:530px}
-.checker label{display:block;font-size:13px;font-weight:700;color:var(--body);
-  text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px}
-.crow{display:flex;gap:9px}
-.crow input{flex:1;padding:14px 15px;border:1.6px solid var(--line);border-radius:11px;
-  font-size:16px;font-family:inherit;color:var(--ink);outline:none;transition:border .14s,box-shadow .14s}
-.crow input::placeholder{color:var(--slate)}
-.crow input:focus{border-color:var(--b600);box-shadow:0 0 0 3px var(--b100)}
-.cres{margin-top:13px;display:none}
-.cres.on{display:block}
-.rcard{display:flex;gap:11px;padding:13px 15px;border-radius:11px;font-size:14.5px;align-items:flex-start}
-.rcard b{display:block;margin-bottom:2px}
-.r-info{background:var(--b050);border:1px solid var(--b200);color:var(--b800)}
-.r-warn{background:#FFF7ED;border:1px solid #FED7AA;color:#9A3412}
-.fineprint{font-size:14px;color:var(--body);margin-top:11px;line-height:1.5}
+.herocta{margin-top:30px}
+.herocta .cta{font-size:17px;padding:16px 28px}
 
 /* phone mock */
 .phonewrap{display:flex;justify-content:center;perspective:1400px}
@@ -92,14 +78,14 @@ h1 em{font-style:normal;color:#DCE7FF}
 .alerthead{background:var(--alert);padding:15px 17px;display:flex;align-items:center;gap:11px}
 .alerthead .ic{width:35px;height:35px;border-radius:10px;background:rgba(255,255,255,.22);
   display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.alerthead h4{color:#fff;font-size:19px;font-weight:800;line-height:1.15;letter-spacing:-.01em}
-.alerthead p{color:rgba(255,255,255,.9);font-size:13px;font-weight:500}
+.alerthead h4{color:#fff;font-size:17px;font-weight:800;line-height:1.22;letter-spacing:-.01em}
 .alertbody{padding:15px 17px}
-.reportline{display:flex;align-items:center;gap:11px;background:#FEF2F2;border:1px solid #FECACA;
-  border-radius:10px;padding:11px 13px;margin-bottom:12px}
-.reportline .n{font-size:22px;font-weight:800;color:var(--alert);line-height:1;flex-shrink:0}
-.reportline span{font-size:12.5px;color:#7F1D1D;font-weight:600;line-height:1.4}
-.advice{font-size:13.5px;color:var(--slate);line-height:1.5}
+/* De kaart toont wat de app werkelijk toont: het feit als kop, de instructie eronder, en de knop
+   waarmee de gebruiker hem wegtikt. Een los severity-label ("Stop") bestaat sinds 27 sep 2026
+   niet meer in de app, dus ook niet meer hier. */
+.advice{font-size:15px;font-weight:600;color:var(--ink);line-height:1.5}
+.gotit{margin-top:14px;background:var(--b600);color:#fff;border-radius:11px;padding:11px 0;
+  text-align:center;font-size:14px;font-weight:800;letter-spacing:.02em}
 .callbtns{display:flex;gap:12px;margin-top:auto;padding-top:24px;justify-content:center}
 .cbtn{width:57px;height:57px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 .cbtn.red{background:#EF4444} .cbtn.green{background:#22C55E}
@@ -300,7 +286,7 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:0}
   .pitem{grid-template-columns:1fr;gap:14px;padding:22px 18px}
   section{padding:62px 0}
 }
-@media(max-width:520px){ .fgrid{grid-template-columns:1fr} .crow{flex-direction:column} }
+@media(max-width:520px){ .fgrid{grid-template-columns:1fr} }
 
 /* zachte scroll-infade: start-verborgen geldt alleen als JS draait */
 html.js [data-rv]{opacity:0;transform:translateY(12px);
@@ -328,7 +314,7 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
       <a href="#eerlijk">Onze aanpak</a>
       <a href="#app">De app</a>
     </nav>
-    <a href="#checker" class="cta">Nummer checken</a>
+    <a href="#app" class="cta">Bekijk de app</a>
     <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -340,14 +326,8 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
       <h1>Bescherm jezelf en je familie tegen telefoonfraude.</h1>
       <p class="lead">Oplichters doen zich voor als je bank, de overheid of een familielid in nood, soms met een AI-nagemaakte stem. BelSafe herkent het verdachte nummer en waarschuwt je op tijd, in gewone taal.</p>
 
-      <div class="checker" id="checker">
-        <label for="num">Check een telefoonnummer</label>
-        <div class="crow">
-          <input type="tel" id="num" placeholder="Bv. +32 471 12 34 56" aria-label="Telefoonnummer">
-          <button class="cta" onclick="doCheck()">Checken</button>
-        </div>
-        <div class="cres" id="res"></div>
-        <p class="fineprint">BelSafe toont of een nummer eerder is gemeld. Dat is geen sluitend bewijs van fraude. Blijf altijd zelf voorzichtig.</p>
+      <div class="herocta" id="checker">
+        <a href="#app" class="cta">Zoek een nummer op in de app</a>
       </div>
     </div>
 
@@ -365,16 +345,12 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r=".6" fill="#fff"/><path d="M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0Z"/></svg>
               </div>
               <div>
-                <h4>Stop</h4>
-                <p>Zeer verdacht nummer</p>
+                <h4>6 mensen meldden dit nummer</h4>
               </div>
             </div>
             <div class="alertbody">
-              <div class="reportline">
-                <span class="n">6×</span>
-                <span>gemeld als verdacht door<br>gebruikers van BelSafe</span>
-              </div>
-              <p class="advice">Neem niet op als u dit nummer niet kent. Geef nooit codes, pincodes of bankgegevens door.</p>
+              <p class="advice">Neem niet op.</p>
+              <div class="gotit">Begrepen</div>
             </div>
           </div>
           <div class="callbtns">
@@ -443,11 +419,10 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
             <div class="warn anim1">
               <div class="warnhd red">
                 <div class="wi"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r=".7" fill="#fff"/><path d="M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0Z"/></svg></div>
-                <div><h5>Stop</h5><p>Zeer verdacht nummer</p></div>
+                <div><h5>6 mensen meldden dit nummer</h5></div>
               </div>
               <div class="warnbd">
-                <div class="chip red anim2 pulse"><b>6&times;</b><span>gemeld als verdacht door<br>gebruikers van BelSafe</span></div>
-                <p class="adv anim3">Neem niet op als u dit nummer niet kent. Geef nooit codes door.</p>
+                <p class="adv anim3">Neem niet op.</p>
               </div>
             </div>
             <div class="cbar">
@@ -467,11 +442,10 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
             <div class="warn anim1">
               <div class="warnhd blue">
                 <div class="wi"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18M5 10V7.6L12 4l7 3.6V10M6 10v8M10 10v8M14 10v8M18 10v8M3 21h18"/></svg></div>
-                <div><h5>Let op</h5><p>Uw bank belt</p></div>
+                <div><h5>LET OP</h5><p>Uw bank vraagt nooit om uw codes</p></div>
               </div>
               <div class="warnbd">
-                <div class="chip blue anim2"><b>!</b><span>Oplichters kunnen het<br>nummer van uw bank namaken</span></div>
-                <p class="adv anim3">Geef nooit codes of pincodes door. Bel de bank zelf terug via hun officiële nummer.</p>
+                <p class="adv anim3">Geef nooit codes of pincodes door. Hang op en bel zelf terug via het nummer op de website van uw bank.</p>
               </div>
             </div>
             <div class="cbar">
@@ -501,9 +475,9 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
             <div class="card anim2" style="background:#FEF2F2;border:1px solid #FECACA;box-shadow:none">
               <div style="display:flex;gap:7px">
                 <div class="rowic" style="background:#FEE2E2;color:#DC2626"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="17" r=".7" fill="currentColor"/><path d="M10.3 3.9 2.4 18a1.9 1.9 0 0 0 1.7 2.9h15.8a1.9 1.9 0 0 0 1.7-2.9L13.7 3.9a1.9 1.9 0 0 0-3.4 0Z"/></svg></div>
-                <div><h6 style="font-size:9.5px;font-weight:800;line-height:1.15;margin-bottom:3px;color:#991B1B">Verdacht nummer</h6>
-                <div class="chip red anim3" style="margin:4px 0 4px;padding:5px 6px"><b>4&times;</b><span>gemeld door de<br>BelSafe-community</span></div>
-                <small style="font-size:7px;color:#7F1D1D;line-height:1.4;display:block">Wees voorzichtig. Geef nooit codes of bankgegevens door aan deze beller.</small></div>
+                <div><h6 style="font-size:9.5px;font-weight:800;line-height:1.15;margin-bottom:3px;color:#991B1B">Verdacht. Wees voorzichtig.</h6>
+                <div class="chip red anim3" style="margin:4px 0 4px;padding:5px 6px"><span>Door 4 mensen gemeld<br>als verdacht</span></div>
+                <small style="font-size:7px;color:#7F1D1D;line-height:1.4;display:block">Dit nummer is door 4 mensen gemeld als verdacht. Wees voorzichtig.</small></div>
               </div>
             </div>
           </div>
@@ -562,38 +536,6 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
         </div></div>
         <div class="flabel">Zelf blokkeren <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         <p class="fdesc">Nummers, landcodes en reeksen</p>
-      </div>
-
-      <div class="feat" data-i="4">
-        <div class="fphone"><div class="fscreen">
-          <div class="appbar">
-            <div class="lg"><svg width="9" height="9" viewBox="0 0 24 24" fill="#fff"><path d="M12 2 4 5.5v6c0 5 3.4 9.7 8 10.5 4.6-.8 8-5.5 8-10.5v-6L12 2Z"/></svg></div>
-            <span class="nm">BelSafe</span><span class="fam">FAMILY</span>
-          </div>
-          <div class="fbody">
-            <div class="kick">Berichtcheck</div>
-            <div class="ttl">Is dit bericht echt?</div>
-            <div class="msg anim1">
-              <div class="from">Bericht van +32 460 &hellip;</div>
-              Uw pakket kon niet geleverd worden. Betaal 1,99 &euro; via deze link om opnieuw te leveren: bit.ly/pk-4821
-            </div>
-            <div class="scanbar anim2"><i></i></div>
-            <div class="verdict bad anim3">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.4" stroke-linecap="round" style="flex-shrink:0;margin-top:1px"><path d="M12 8v5"/><circle cx="12" cy="17" r=".7" fill="#DC2626"/><circle cx="12" cy="12" r="9"/></svg>
-              <div><h6>Waarschijnlijk oplichting</h6>
-              <p>Nepbetaling voor een pakket, met een verkorte link. Klik niet en betaal niets.</p></div>
-            </div>
-          </div>
-          <div class="tabs">
-            <div class="tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>Home</div>
-            <div class="tab act"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>Check</div>
-            <div class="tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V4M4 5h11l-1.5 4L15 13H4" stroke-linejoin="round"/></svg>Meld</div>
-            <div class="tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5.5v6c0 5 3.4 9.7 8 10.5 4.6-.8 8-5.5 8-10.5v-6L12 2Z"/></svg>Bescherming</div>
-            <div class="tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 6a3 3 0 0 1 0 6M18 20a5 5 0 0 0-2-4" stroke-linecap="round"/></svg>Familie</div>
-          </div>
-        </div></div>
-        <div class="flabel">Berichtcheck <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-        <p class="fdesc">Verdachte sms of WhatsApp nakijken</p>
       </div>
 
     </div>
@@ -655,17 +597,6 @@ html.js [data-rv].rv-in{opacity:1;transform:none}
 </footer>
 
 <script>
-function doCheck(){
-  var v=document.getElementById('num').value.trim();
-  var r=document.getElementById('res');
-  r.classList.add('on');
-  if(!v){
-    r.innerHTML='<div class="rcard r-warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><path d="M12 8v5"/><circle cx="12" cy="17" r=".7" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg><span>Vul eerst een telefoonnummer in.</span></div>';
-    return;
-  }
-  r.innerHTML='<div class="rcard r-info"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.6" r=".7" fill="currentColor"/></svg><span><b>Deze functie wordt binnenkort gekoppeld.</b>Straks zie je hier meteen of dit nummer eerder gemeld is, en hoe vaak.</span></div>';
-}
-document.getElementById('num').addEventListener('keydown',function(e){if(e.key==='Enter')doCheck()});
 
 (function(){
   var feats=document.querySelectorAll('#feats .feat');
