@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Account en gegevens verwijderen — BelSafe</title>
-<meta name="description" content="Zo verwijdert u uw BelSafe-account en al uw gegevens: rechtstreeks in de app, of per e-mail naar info@belsafe.eu.">
+<title>Staat uw nummer ten onrechte in BelSafe? — BelSafe</title>
+<meta name="description" content="Denkt u dat uw telefoonnummer ten onrechte in de waarschuwingslijst van BelSafe staat? Zo laat u het nakijken: mail privacy@belsafe.eu. Wij antwoorden binnen een maand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: cool (civic blue)
  * theme: inherited (belsafe.eu house system — geen nieuw thema opgelegd)
- * pre-emit critique: P5 H5 E4 S5 R5 V4
- * enrichment: none (typography only) · motion: none
+ * stijl identiek aan account-verwijderen.html; alleen .note is nieuw
  */
 
 :root{
@@ -91,6 +90,14 @@ h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-hei
 .datalist .dot{width:9px;height:9px;border-radius:50%;background:var(--b600);
   flex-shrink:0;margin-top:11px}
 
+/* aandachtsblok voor wat wij niet doen */
+.note{background:var(--b050);border:1px solid var(--b100);border-left:5px solid var(--b600);
+  border-radius:var(--r);padding:24px}
+.note p{font-size:19px;margin-bottom:16px}
+.note p:last-child{margin-bottom:0}
+.note a{font-weight:700;color:var(--b700);border-bottom:2px solid var(--b200);padding-bottom:1px}
+.note a:hover{border-bottom-color:var(--b700)}
+
 /* footer — identiek aan de rest van de site */
 footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
 .fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
@@ -123,9 +130,10 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
   <div class="wrap">
     <div class="inner">
       <a href="index.html" class="crumb">&larr; Terug naar de startpagina</a>
-      <h1>Account en gegevens verwijderen</h1>
-      <p class="lead">U kunt uw BelSafe-account en al uw gegevens laten verwijderen. Hieronder leest u
-        hoe dat gaat. Het kost u een paar tikken, of één e-mail.</p>
+      <h1>Staat uw nummer ten onrechte in BelSafe?</h1>
+      <p class="lead">BelSafe waarschuwt gebruikers bij een oproep van een nummer dat meermaals als
+        fraude gemeld is. Het kan gebeuren dat een nummer daar ten onrechte tussen staat. Op deze
+        pagina leest u wat u dan kunt doen.</p>
     </div>
   </div>
 </div>
@@ -134,46 +142,75 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
   <div class="wrap doc">
 
     <section>
-      <h2>Er zijn twee manieren</h2>
+      <h2>Hoe kan dat gebeuren?</h2>
+      <p>Bijna altijd door nummerspoofing. Een oplichter laat op het scherm van zijn slachtoffer een
+        bestaand nummer zien dat niet van hem is. Wie dan terugbelt of een melding maakt, komt bij de
+        echte eigenaar terecht. Zo kan uw nummer in onze lijst belanden zonder dat u iets gedaan hebt.</p>
+      <p>Het gebeurt ook dat iemand zich vergist, of dat een nummer van eigenaar gewisseld is nadat
+        de vorige gebruiker er misbruik van maakte.</p>
+    </section>
+
+    <section>
+      <h2>Wat u moet doen</h2>
+      <p>Stuur een e-mail naar
+        <a class="mailto" href="mailto:privacy@belsafe.eu?subject=Mijn%20nummer%20staat%20ten%20onrechte%20in%20BelSafe">privacy@belsafe.eu</a>.
+        Vermeld het telefoonnummer en wie u bent. Wat wij daarna nodig hebben, hangt ervan af of het
+        om een organisatie of om uw eigen nummer gaat.</p>
 
       <div class="way">
         <div class="n">1</div>
         <div>
-          <h3>In de app</h3>
-          <p>Open BelSafe en ga naar:</p>
-          <span class="path">Instellingen &rsaquo; Account beheer &rsaquo; Account en gegevens verwijderen</span>
-          <p>Voer uw wachtwoord in om te bevestigen. Uw account en alle gegevens worden dan
-            direct en onomkeerbaar verwijderd.</p>
+          <h3>Het nummer van een organisatie</h3>
+          <p>Gaat het om een praktijk, een winkel, een school of een dienst, dan hoeft u meestal
+            niets op te sturen. Wij zoeken het nummer zelf op uw officiële website of in het
+            KBO-register. Vinden wij het daar, dan is dat voor ons voldoende.</p>
+          <p>Zet in uw bericht dus vooral de naam van de organisatie en het nummer.</p>
         </div>
       </div>
 
       <div class="way">
         <div class="n">2</div>
         <div>
-          <h3>Als u de app niet meer hebt</h3>
-          <p>Stuur een e-mail naar
-            <a class="mailto" href="mailto:info@belsafe.eu?subject=Verzoek%20tot%20verwijdering%20van%20mijn%20account">info@belsafe.eu</a>
-            vanaf het e-mailadres waarmee u zich hebt geregistreerd.</p>
-          <p>Wij verwijderen uw gegevens binnen 30 dagen en bevestigen dat per e-mail.
-            Dit is onomkeerbaar.</p>
+          <h3>Uw eigen, persoonlijke nummer</h3>
+          <p>Een persoonlijk nummer staat nergens openbaar, dus daar hebben wij wel een bewijsje
+            nodig: een factuur of contract van uw telecomoperator waarop uw naam en het nummer
+            staan.</p>
+          <p><strong>U mag al het andere wegstrepen.</strong> Bedragen, uw adres, uw gesprekken: dat
+            hebben wij niet nodig en willen wij niet zien. Wij kijken alleen of de naam en het
+            nummer bij elkaar horen, noteren dat wij het gezien hebben, en verwijderen het document
+            daarna.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Welke gegevens worden verwijderd</h2>
+      <h2>Wat er daarna gebeurt</h2>
       <ul class="datalist">
-        <li><span class="dot"></span><span>Uw e-mailadres</span></li>
-        <li><span class="dot"></span><span>De nummers die u hebt gemeld</span></li>
-        <li><span class="dot"></span><span>Uw SOS-noodnummer</span></li>
-        <li><span class="dot"></span><span>Uw persoonlijke blokkeerlijst</span></li>
+        <li><span class="dot"></span><span>Wij antwoorden binnen een maand. Dat is de wettelijke termijn, en die begint op de dag dat uw bericht bij ons aankomt.</span></li>
+        <li><span class="dot"></span><span>Blijkt het nummer ten onrechte in de lijst te staan, dan halen wij het eruit.</span></li>
+        <li><span class="dot"></span><span>Gebruikers krijgen dan geen waarschuwing meer bij een oproep van dit nummer. Die wijziging staat meestal binnen een dag op alle toestellen.</span></li>
+        <li><span class="dot"></span><span>Het nummer blijft daarna uitgesloten, ook als iemand het later opnieuw meldt.</span></li>
       </ul>
     </section>
 
     <section>
+      <h2>Wat wij niet doen</h2>
+      <div class="note">
+        <p>Nummers die bevestigd zijn als frauduleus halen wij niet uit de lijst op verzoek. Dat is
+          precies waar BelSafe voor bestaat.</p>
+        <p>Wij vertellen ook nooit wie een nummer gemeld heeft, of hoeveel mensen dat deden. Dat zijn
+          gegevens van anderen.</p>
+        <p>Bent u het met onze beslissing niet eens, dan kunt u een klacht indienen bij de
+          <a href="https://www.gegevensbeschermingsautoriteit.be/burger/acties/klacht-indienen" rel="noopener">Gegevensbeschermingsautoriteit</a>.
+          U kunt ook terecht bij het BIPT of bij de politie.</p>
+      </div>
+    </section>
+
+    <section>
       <h2>Vragen?</h2>
-      <p>Bent u er niet uit, of lukt het niet? Stuur een e-mail naar
-        <a class="mailto" href="mailto:info@belsafe.eu">info@belsafe.eu</a> en wij helpen u verder.</p>
+      <p>Komt u er niet uit, of weet u niet zeker of uw nummer in de lijst staat? Stuur een e-mail
+        naar <a class="mailto" href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a> en wij kijken
+        het voor u na.</p>
     </section>
 
   </div>
@@ -194,8 +231,8 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
       </div>
       <div class="fcol">
         <h4>Juridisch</h4>
-        <a href="ten-onrechte.html">Nummer ten onrechte in de lijst?</a>
-        <a href="account-verwijderen.html" aria-current="page">Account verwijderen</a>
+        <a href="ten-onrechte.html" aria-current="page">Nummer ten onrechte in de lijst?</a>
+        <a href="account-verwijderen.html">Account verwijderen</a>
       </div>
       <div class="fcol">
         <h4>Contact</h4>
