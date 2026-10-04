@@ -1,0 +1,3 @@
+# Git-hooks MOETEN LF houden: met CRLF leest git-bash de shebang als "/bin/sh\r" en faalt met
+# "bad interpreter". Dan staat de poort er wel, maar doet hij niets.
+.githooks/* text eol=lf

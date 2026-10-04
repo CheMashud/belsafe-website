@@ -1,0 +1,4 @@
+#!/bin/sh
+# Geen commit met een link die naar niets wijst. De site is het enige wat een buitenstaander van
+# BelSafe ziet; een dode link daar is een belofte die niet nagekomen wordt.
+exec node "$(git rev-parse --show-toplevel)/linkcheck.mjs"
