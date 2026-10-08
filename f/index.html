@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Familie koppelen — BelSafe</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="../fonts.css">
+<style>
+:root{
+  --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260;
+  --b050:#EFF4FF; --b100:#DBE7FF;
+  --ink:#0B1220; --slate:#4A5568; --mute:#6B7486;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;
+  background:linear-gradient(160deg,var(--b600) 0%,var(--b800) 55%,var(--b900) 100%);
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px}
+a{text-decoration:none;color:inherit}
+.card{background:#fff;border-radius:22px;max-width:470px;width:100%;
+  padding:40px 32px 34px;text-align:center;box-shadow:0 30px 70px rgba(4,16,54,.4)}
+.badge{width:96px;height:96px;margin:0 auto 18px}
+.badge img{width:100%;height:100%;border-radius:24px;display:block}
+.mark{font-weight:800;letter-spacing:-.025em;font-size:21px;margin-bottom:20px}
+.mark .a{color:var(--b600)} .mark .b{color:var(--ink)}
+h1{font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1.18;margin-bottom:12px}
+p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
+.btn{display:block;width:100%;min-height:56px;border-radius:16px;background:var(--b600);color:#fff;
+  font-size:19px;font-weight:800;padding:15px 20px}
+.btn:active{background:var(--b700)}
+.hint{font-size:16px;color:var(--mute);line-height:1.55;margin-top:20px}
+.hint a{color:var(--b700);font-weight:700}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="badge"><img src="../logo-rond.png" alt=""></div>
+  <div class="mark"><span class="a">Bel</span><span class="b">Safe</span></div>
+
+  <div id="ok">
+    <h1>Familie koppelen</h1>
+    <p class="lead">Open deze link op de telefoon waarop BelSafe staat.</p>
+    <a id="open" class="btn" href="#">Openen in BelSafe</a>
+  </div>
+
+  <div id="bad" hidden>
+    <h1>Deze link werkt niet</h1>
+    <p class="lead">Vraag een nieuwe link aan wie u uitnodigde.</p>
+  </div>
+
+  <p class="hint">Vragen? Mail <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>.</p>
+</main>
+
+<script>
+// De sleutel staat achter het hekje en verlaat deze telefoon niet: de browser stuurt dat deel
+// nooit naar de server, en deze pagina stuurt het nergens heen.
+(function () {
+  var token = (location.hash || "").replace(/^#/, "").toLowerCase();
+  if (!/^[0-9a-f]{32}$/.test(token)) {
+    document.getElementById("ok").hidden = true;
+    document.getElementById("bad").hidden = false;
+    return;
+  }
+  document.getElementById("open").href =
+    "intent://f/" + token + "#Intent;scheme=belsafe;package=eu.belsafe.app;end";
+})();
+</script>
+</body>
+</html>
