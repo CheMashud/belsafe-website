@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacybeleid — BelSafe</title>
+<meta name="description" content="Welke gegevens BelSafe bewaart, waarom, hoe lang, en wat u ermee mag. Vragen: privacy@belsafe.eu.">
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: cool (civic blue)
+ * theme: inherited (belsafe.eu house system — geen nieuw thema opgelegd)
+ * stijl identiek aan ten-onrechte.html; alleen .rows is nieuw
+ */
+
+:root{
+  --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260;
+  --b050:#EFF4FF; --b100:#DBE7FF; --b200:#BFD3FF;
+  --ink:#0B1220; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
+  --r:16px; --max:1140px; --measure:64ch;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:#fff;line-height:1.68;-webkit-font-smoothing:antialiased;
+  font-size:19px}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+.mark{font-weight:800;letter-spacing:-.025em;font-size:25px}
+.mark .a{color:var(--b600)} .mark .b{color:var(--ink)}
+.mark.inv .a{color:#8FB4FF} .mark.inv .b{color:#fff}
+:focus-visible{outline:3px solid var(--b600);outline-offset:3px;border-radius:4px}
+
+/* header — identiek aan de rest van de site */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-size:16px;font-weight:500;color:var(--slate);white-space:nowrap}
+.navlinks a:hover{color:var(--b600)}
+@media(max-width:760px){ .navlinks{display:none} }
+
+/* kop van de pagina */
+.pagehead{background:var(--b050);border-bottom:1px solid var(--b100);padding:56px 0 48px}
+.pagehead .inner{max-width:var(--measure)}
+.crumb{font-size:16px;font-weight:600;color:var(--b700);margin-bottom:16px;display:inline-block}
+.crumb:hover{text-decoration:underline}
+h1{font-size:clamp(30px,4.2vw,44px);line-height:1.14;letter-spacing:-.03em;font-weight:800;
+  margin-bottom:16px;overflow-wrap:anywhere;min-width:0}
+.lead{font-size:21px;color:var(--slate);line-height:1.62}
+.stamp{font-size:16px;color:var(--slate);margin-top:16px}
+
+/* documentkolom */
+main{padding:56px 0 0}
+.doc{max-width:var(--measure)}
+h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.22;
+  margin-bottom:16px;overflow-wrap:anywhere;min-width:0}
+.doc section{padding-bottom:48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
+.doc section:last-of-type{border-bottom:0;padding-bottom:0;margin-bottom:0}
+.doc p{margin-bottom:16px}
+.doc p:last-child{margin-bottom:0}
+.mailto{display:inline-block;font-weight:700;color:var(--b700);font-size:19px;
+  border-bottom:2px solid var(--b200);padding-bottom:1px;white-space:nowrap}
+.mailto:hover{border-bottom-color:var(--b700)}
+.doc a.inline{font-weight:700;color:var(--b700);border-bottom:2px solid var(--b200);padding-bottom:1px}
+.doc a.inline:hover{border-bottom-color:var(--b700)}
+.path{display:inline-block;background:var(--b050);border:1px solid var(--b100);border-radius:10px;
+  padding:8px 16px;font-weight:600;color:var(--b800);font-size:19px;margin:0 0 16px;
+  line-height:1.5}
+
+/* gegevenslijst */
+.datalist{list-style:none;display:flex;flex-direction:column;margin-bottom:16px}
+.datalist:last-child{margin-bottom:0}
+.datalist li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start;
+  padding:16px 0;border-bottom:1px solid var(--line);font-size:19px}
+.datalist li:last-child{border-bottom:0}
+.datalist .dot{width:9px;height:9px;border-radius:50%;background:var(--b600);
+  flex-shrink:0;margin-top:11px}
+
+/* tabel als rijen: op een gsm vallen de kolommen onder elkaar, met hun label erbij */
+.rows{border:1.6px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.rows:last-child{margin-bottom:0}
+.rows .head,.rows .row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.2fr) minmax(0,.9fr);
+  gap:20px;padding:16px 20px}
+.rows.two .head,.rows.two .row{grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr)}
+.rows .head{background:var(--b050);font-size:16px;font-weight:700;color:var(--b800)}
+.rows .row{border-top:1px solid var(--line);font-size:18px}
+.rows .row strong{font-weight:700}
+.rows .lbl{display:none}
+@media(max-width:700px){
+  .rows .head{display:none}
+  .rows .head,.rows .row,.rows.two .head,.rows.two .row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .rows .row:first-of-type{border-top:0}
+  .rows .lbl{display:block;font-size:15px;font-weight:700;color:var(--slate);margin-top:8px}
+  .rows .row > div:first-child .lbl{margin-top:0}
+}
+
+/* footer — identiek aan de rest van de site */
+footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+.fabout p{font-size:15px;color:#B9CDF5;margin-top:12px;max-width:270px;line-height:1.6}
+.fcol h4{font-size:13.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:#8FB4FF;margin-bottom:15px}
+.fcol a{display:block;font-size:15.5px;color:#DCE8FF;margin-bottom:11px;transition:color .14s}
+.fcol a:hover{color:#fff}
+.fcol a[aria-current="page"]{color:#fff;font-weight:600}
+.fbottom{border-top:1px solid rgba(255,255,255,.15);padding:20px 0 26px;display:flex;
+  justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14px;color:#A8C2F0}
+@media(max-width:900px){ .fgrid{grid-template-columns:1fr 1fr;gap:32px} }
+@media(max-width:520px){ .fgrid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="mark"><span class="a">Bel</span><span class="b">Safe</span></a>
+    <nav class="navlinks">
+      <a href="index.html#bescherming">Bescherming</a>
+      <a href="index.html#eerlijk">Onze aanpak</a>
+      <a href="index.html#app">De app</a>
+    </nav>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <div class="inner">
+      <a href="index.html" class="crumb">&larr; Terug naar de startpagina</a>
+      <h1>Privacybeleid</h1>
+      <p class="lead">BelSafe is een app die u waarschuwt voor oproepen van fraudeurs. Hier leest u
+        welke gegevens wij daarvoor bewaren, waarom, hoe lang, en wat u ermee mag.</p>
+      <p class="stamp">Laatst bijgewerkt: 8 oktober 2026</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap doc">
+
+    <section>
+      <h2>Wie wij zijn</h2>
+      <p>BelSafe is een eenmanszaak van Maskhoud Tovdarkhanov, Nieuw Overlaar 22 bus 10, 3300 Tienen,
+        ondernemingsnummer 1040919272.</p>
+      <p>Vragen over uw gegevens? Mail naar
+        <a class="mailto" href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>.</p>
+    </section>
+
+    <section>
+      <h2>In het kort</h2>
+      <ul class="datalist">
+        <li><span class="dot"></span><span>Uw adresboek blijft op uw telefoon. Een SOS-contact bewaren wij alleen als u het zelf invult.</span></li>
+        <li><span class="dot"></span><span>Wij luisteren niet mee en nemen geen gesprekken op.</span></li>
+        <li><span class="dot"></span><span>Wij lezen uw berichten en foto's niet, en vragen uw locatie niet.</span></li>
+        <li><span class="dot"></span><span>Geen reclame. Wij verkopen uw gegevens niet.</span></li>
+        <li><span class="dot"></span><span>Uw account en uw meldingen staan op servers in Ierland.</span></li>
+        <li><span class="dot"></span><span>Andere gebruikers zien nooit wie een nummer meldde.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Wat op uw telefoon blijft</h2>
+      <div class="rows" role="table" aria-label="Wat op uw telefoon blijft">
+        <div class="head" role="row"><div role="columnheader">Gegeven</div><div role="columnheader">Waarvoor</div><div role="columnheader">Hoe lang</div></div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>De nummers uit uw contacten (geen namen)</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Zodat mensen die u kent gewoon doorkomen</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Zolang ze in uw contacten staan</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>De nummers van wie u de laatste 48 uur belde</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Zodat u een oproep achteraf kunt melden</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>48 uur</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Wat wij bewaren, en waarom</h2>
+      <div class="rows" role="table" aria-label="Wat wij bewaren">
+        <div class="head" role="row"><div role="columnheader">Gegeven</div><div role="columnheader">Waarvoor</div><div role="columnheader">Hoe lang</div></div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Uw e-mailadres, uw wachtwoord (zo bewaard dat niemand het kan lezen), en gegevens van uw aanmelding (het adres van uw internetverbinding, type telefoon)</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Uw account</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Tot u uw account verwijdert</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Uw instellingen, en het nummer en de naam van uw SOS-contact</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Dezelfde bescherming op een nieuwe telefoon</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Tot u uw account verwijdert</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Nummers die u zelf blokkeert, met uw eigen omschrijving</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Uw eigen blokkeerlijst</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Tot u ze wist of uw account verwijdert</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Hoe vaak u vandaag een nummer opzocht</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Het gratis aantal per dag</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Tot u weer iets opzoekt, of uw account verwijdert</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Een nummer dat u meldt, de reden die u kiest, en wat u er eventueel bij schrijft</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Andere gebruikers waarschuwen</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Tot u uw account verwijdert</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Foutmeldingen als de app vastloopt. Wij halen er nummers en e-mailadressen uit</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>De app herstellen</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>30 dagen</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><span class="lbl">Gegeven</span>Ons technische logboek: het adres van uw internetverbinding, ongeveer in welke stad u bent, en het type telefoon, bij elk contact met onze server</div>
+          <div role="cell"><span class="lbl">Waarvoor</span>Beveiliging en storingen</div>
+          <div role="cell"><span class="lbl">Hoe lang</span>Ongeveer een dag</div>
+        </div>
+      </div>
+      <p>Zoekt u een nummer op, dan bewaren wij dat nergens.</p>
+      <p>Belt een onbekend nummer, dan haalt de app de nieuwste lijst op. Het nummer dat belt, sturen
+        wij niet mee.</p>
+    </section>
+
+    <section>
+      <h2>Hoe een nummer in onze lijst komt</h2>
+      <p>Een nummer komt in onze waarschuwingslijst als twee gebruikers het melden, of als het op een
+        openbare waarschuwingslijst staat. Belt zo'n nummer, dan ziet u een waarschuwing. De lijst
+        staat op de telefoon van elke gebruiker, zonder namen van melders.</p>
+      <p>Heeft een officiële dienst, zoals de politie, een nummer als fraude bevestigd? Dan weigert de
+        app die oproep. Staat het nummer in uw contacten, dan krijgt u een waarschuwing.</p>
+      <p>Komt er 90 dagen geen nieuwe melding bij, dan stopt de waarschuwing vanzelf. Het nummer
+        blijft daarna nog in onze lijst staan, zonder waarschuwing. Nummers die een officiële dienst
+        bevestigde, blijven actief.</p>
+      <p>Iedereen kan hetzelfde nummer hoogstens één keer per 24 uur melden.</p>
+      <p>Belt een nummer uit de lijst, dan beslist de app zelf of u een waarschuwing krijgt of dat de
+        oproep geweigerd wordt. Op dat moment kijkt er niemand mee.</p>
+    </section>
+
+    <section>
+      <h2>Is uw nummer gemeld?</h2>
+      <p>Denkt u dat uw nummer ten onrechte in onze lijst staat? Mail naar
+        <a class="mailto" href="mailto:privacy@belsafe.eu?subject=Mijn%20nummer%20staat%20ten%20onrechte%20in%20BelSafe">privacy@belsafe.eu</a>
+        met het nummer en wie u bent. Wij antwoorden binnen één maand. Klopt het, dan halen wij het
+        nummer eruit en blijft het eruit, ook als iemand het later opnieuw meldt. Wij zeggen nooit wie
+        een nummer gemeld heeft. Een nummer dat een officiële dienst als fraude bevestigde, halen wij
+        er niet uit; daarvoor kunt u bij de politie terecht.</p>
+      <p>Meer uitleg: <a class="inline" href="ten-onrechte.html">Staat uw nummer ten onrechte in BelSafe?</a></p>
+    </section>
+
+    <section>
+      <h2>Wie ons helpt</h2>
+      <p>Deze bedrijven verwerken gegevens voor ons.</p>
+      <div class="rows two" role="table" aria-label="Wie ons helpt">
+        <div class="head" role="row"><div role="columnheader">Bedrijf</div><div role="columnheader">Wat</div></div>
+        <div class="row" role="row">
+          <div role="cell"><strong>Supabase</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Bewaart de gegevens hierboven, in Ierland</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><strong>Brevo</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Verstuurt de mail om uw e-mailadres te bevestigen of uw wachtwoord te herstellen</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><strong>Google (Firebase)</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Laat de app weten dat er nieuwe fraudenummers zijn. Google krijgt alleen een technische code van uw telefoon, niet wie u bent of wie u belt</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><strong>Google Play</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Verspreidt de app en meldt ons als de app crasht</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><strong>one.com</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Ontvangt en bewaart uw mail aan privacy@ en info@</div>
+        </div>
+        <div class="row" role="row">
+          <div role="cell"><strong>GitHub</strong></div>
+          <div role="cell"><span class="lbl">Wat</span>Toont onze website belsafe.eu</div>
+        </div>
+      </div>
+      <p>Supabase, Google en GitHub zijn Amerikaanse bedrijven. Gaan er gegevens naar de Verenigde
+        Staten, dan gebeurt dat met de afspraken die de Europese Unie daarvoor goedkeurde.</p>
+    </section>
+
+    <section>
+      <h2>Waarom wij dit mogen</h2>
+      <ul class="datalist">
+        <li><span class="dot"></span><span>Uw account, instellingen en blokkeerlijst: omdat u de app gebruikt.</span></li>
+        <li><span class="dot"></span><span>Meldingen en de waarschuwingslijst: fraude tegengaan.</span></li>
+        <li><span class="dot"></span><span>Foutmeldingen en het technische logboek: de app veilig en werkend houden.</span></li>
+      </ul>
+      <p>Zonder e-mailadres kunt u geen account maken. Zonder account beschermt de app u niet.</p>
+    </section>
+
+    <section>
+      <h2>Uw rechten</h2>
+      <p>U mag:</p>
+      <ul class="datalist">
+        <li><span class="dot"></span><span>zien welke gegevens wij over u hebben;</span></li>
+        <li><span class="dot"></span><span>laten verbeteren wat niet klopt;</span></li>
+        <li><span class="dot"></span><span>alles laten wissen;</span></li>
+        <li><span class="dot"></span><span>het gebruik van uw gegevens laten beperken;</span></li>
+        <li><span class="dot"></span><span>uw gegevens meekrijgen in een bestand;</span></li>
+        <li><span class="dot"></span><span>bezwaar maken.</span></li>
+      </ul>
+      <p><strong>Uw gegevens zien of meekrijgen:</strong> mail vanaf het e-mailadres van uw account
+        naar <a class="mailto" href="mailto:privacy@belsafe.eu?subject=Welke%20gegevens%20hebben%20jullie%20van%20mij%3F">privacy@belsafe.eu</a>.
+        Binnen één maand krijgt u ze allemaal, ook in een bestand.</p>
+      <p><strong>Alles wissen kan in de app zelf:</strong></p>
+      <p><span class="path">Instellingen › Account beheer › Account en gegevens verwijderen</span></p>
+      <p>Uw account, meldingen, instellingen en blokkeerlijst worden meteen gewist, ook op uw telefoon.
+        Gaf een nummer dat u meldde al een waarschuwing, dan blijft die waarschuwing bestaan. Uw
+        melding telt daarin nog mee, maar niemand kan zien dat ze van u kwam. Het technische logboek
+        verdwijnt na ongeveer een dag vanzelf, foutmeldingen na 30 dagen. Heeft u de app niet meer?
+        Lees dan <a class="inline" href="account-verwijderen.html">Account verwijderen</a>, of mail naar
+        <a class="mailto" href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>.</p>
+      <p>U kunt ook altijd klacht indienen bij de
+        <a class="inline" href="https://www.gegevensbeschermingsautoriteit.be/burger/acties/klacht-indienen" target="_blank" rel="noopener">Gegevensbeschermingsautoriteit</a>.</p>
+    </section>
+
+    <section>
+      <h2>Wijzigingen</h2>
+      <p>Veranderen wij iets aan dit beleid, dan ziet u dat hier, met de datum bovenaan.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fabout">
+        <div class="mark inv"><span class="a">Bel</span><span class="b">Safe</span></div>
+        <p>Bescherming tegen telefoonfraude. Een Belgisch initiatief, gebouwd met privacy voorop.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="index.html#bescherming">Bescherming</a>
+        <a href="index.html#eerlijk">Onze aanpak</a>
+        <a href="index.html#app">De app</a>
+      </div>
+      <div class="fcol">
+        <h4>Juridisch</h4>
+        <a href="privacybeleid.html" aria-current="page">Privacybeleid</a>
+        <a href="ten-onrechte.html">Nummer ten onrechte in de lijst?</a>
+        <a href="account-verwijderen.html">Account verwijderen</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>
+        <a href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>
+        <a href="mailto:info@belsafe.eu?subject=Een%20probleem%20melden">Een probleem melden</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 BelSafe &middot; belsafe.eu</span>
+      <span>Gemaakt in Belgi&euml;</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
