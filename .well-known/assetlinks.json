@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "eu.belsafe.app",
+    "sha256_cert_fingerprints": [
+      "13:88:AF:6F:77:45:68:51:D9:0B:51:99:E2:0C:24:A1:78:5D:7F:B4:99:2F:AE:F7:D6:CC:8F:B1:4D:0D:92:0A"
+    ]
+  }
+}]
