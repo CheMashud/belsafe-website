@@ -11,15 +11,19 @@
  *
  * Mailtemplates (met {{ }}-plaatshouders van Supabase) worden overgeslagen: dat is geen
  * website-pagina en die plaatshouders worden pas bij het versturen vervangen.
+ * Een link met het attribuut data-js-href wordt ook overgeslagen: een script vult die href in.
+ * Submappen (zoals f/) tellen mee; een relatief pad geldt vanaf de map van de pagina.
  *
  * Nul afhankelijkheden, zodat dit zonder node_modules draait.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = process.argv[2] ?? dirname(fileURLToPath(import.meta.url));
-const paginas = readdirSync(root).filter((f) => f.endsWith(".html"));
+const paginas = readdirSync(root, { recursive: true })
+  .filter((f) => f.endsWith(".html") && !f.split(/[\\/]/).some((d) => d.startsWith(".") || d === "node_modules"))
+  .map((f) => f.split("\\").join("/"));
 const inhoud = new Map(paginas.map((p) => [p, readFileSync(join(root, p), "utf8")]));
 
 /** Alle id="..."-waarden op een pagina. */
@@ -32,7 +36,8 @@ let geteld = 0;
 
 for (const [pagina, html] of inhoud) {
   const eigen = ankers(html);
-  for (const m of html.matchAll(/href="([^"]*)"/g)) {
+  for (const m of html.matchAll(/<[^>]*\shref="([^"]*)"[^>]*>/g)) {
+    if (/\sdata-js-href[\s=>]/.test(m[0])) continue; // href wordt door een script ingevuld
     const href = m[1];
     if (href.includes("{{")) continue; // mailtemplate-plaatshouder
     geteld++;
@@ -44,8 +49,19 @@ for (const [pagina, html] of inhoud) {
     }
     if (/^(https?:|mailto:|tel:)/.test(href)) continue;
 
-    const [bestand, anker] = href.split("#");
-    if (bestand) {
+    const [pad, anker] = href.split("#");
+    if (pad) {
+      // "/x" geldt vanaf de site-root, "x" vanaf de map van de pagina; "/" en "map/" tonen index.html.
+      let bestand = pad.startsWith("/")
+        ? normalize(pad.slice(1) || ".")
+        : normalize(join(dirname(pagina), pad));
+      bestand = bestand.split("\\").join("/");
+      if (bestand === "." || pad.endsWith("/")) bestand = join(bestand, "index.html").split("\\").join("/");
+      if (bestand.startsWith("..")) {
+        console.log(`FOUT  ${pagina}: ${href} wijst buiten de site`);
+        fouten++;
+        continue;
+      }
       if (!existsSync(join(root, bestand))) {
         console.log(`FOUT  ${pagina}: verwijst naar ${bestand}, dat bestaat niet`);
         fouten++;

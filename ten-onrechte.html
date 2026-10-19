@@ -30,6 +30,9 @@ a{text-decoration:none;color:inherit}
 .mark .a{color:var(--b600)} .mark .b{color:var(--ink)}
 .mark.inv .a{color:#8FB4FF} .mark.inv .b{color:#fff}
 :focus-visible{outline:3px solid var(--b600);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--b600);color:#fff;
+  font-weight:600;padding:10px 16px;border-radius:10px}
+.skip:focus{top:12px}
 
 /* header — identiek aan de rest van de site */
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
@@ -112,6 +115,7 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
 </style>
 </head>
 <body>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
 
 <header>
   <div class="wrap nav">
@@ -137,7 +141,7 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
   </div>
 </div>
 
-<main>
+<main id="inhoud">
   <div class="wrap doc">
 
     <section>
@@ -224,7 +228,8 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
       <p>Staat een nummer bij ons op grond van meldingen, dan verdwijnt het trouwens vanzelf uit de
         waarschuwingen als er drie maanden lang geen nieuwe melding bij komt.</p>
       <p><strong>Verantwoordelijke voor deze gegevens:</strong> BelSafe, Tienen, België.
-        Contact: <a class="mailto" href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>.</p>
+        Contact: <a class="mailto" href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>.
+        Alles over uw gegevens leest u in ons <a class="mailto" href="privacybeleid.html">privacybeleid</a>.</p>
     </section>
 
   </div>

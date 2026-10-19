@@ -32,6 +32,7 @@ p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
 .btn:active{background:var(--b700)}
 .hint{font-size:16px;color:var(--mute);line-height:1.55;margin-top:20px}
 .hint a{color:var(--b700);font-weight:700}
+.legal{font-size:14px;margin-top:12px}
 [hidden]{display:none!important}
 :focus-visible{outline:3px solid #fff;outline-offset:3px}
 </style>
@@ -45,7 +46,7 @@ p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
   <div id="ok">
     <h1>Familie koppelen</h1>
     <p class="lead">Open deze link op de telefoon waarop BelSafe staat.</p>
-    <a id="open" class="btn" href="#">Openen in BelSafe</a>
+    <a id="open" class="btn" href="#" data-js-href>Openen in BelSafe</a>
   </div>
 
   <div id="bad" hidden>
@@ -54,6 +55,7 @@ p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
   </div>
 
   <p class="hint">Vragen? Mail <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>.</p>
+  <p class="hint legal"><a href="../privacybeleid.html">Privacybeleid</a> &middot; Ondernemingsnummer&nbsp;1040.919.272</p>
 </main>
 
 <script>
