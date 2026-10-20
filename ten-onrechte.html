@@ -5,17 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Staat uw nummer ten onrechte in BelSafe? | BelSafe</title>
 <meta name="description" content="Denkt u dat uw telefoonnummer ten onrechte in de waarschuwingslijst van BelSafe staat? Zo laat u het met de hand nakijken: mail privacy@belsafe.eu.">
+<link rel="canonical" href="https://belsafe.eu/ten-onrechte.html">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BelSafe">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:url" content="https://belsafe.eu/ten-onrechte.html">
+<meta property="og:title" content="Staat uw nummer ten onrechte in BelSafe?">
+<meta property="og:description" content="Denkt u dat uw telefoonnummer ten onrechte in de waarschuwingslijst van BelSafe staat? Zo laat u het met de hand nakijken: mail privacy@belsafe.eu.">
+<meta property="og:image" content="https://belsafe.eu/img/og-belsafe.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BelSafe, bescherming tegen telefoonfraude">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="fonts.css">
 <style>
-/* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: cool (civic blue)
- * theme: inherited (belsafe.eu house system — geen nieuw thema opgelegd)
- * stijl identiek aan account-verwijderen.html; alleen .note is nieuw
- */
-
 :root{
   --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260;
   --b050:#EFF4FF; --b100:#DBE7FF; --b200:#BFD3FF;
-  --ink:#0B1220; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
+  --ink:#0B1220; --body:#1A2332; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
   --r:16px; --max:1140px; --measure:64ch;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -39,13 +48,17 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
   backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
 .navlinks{display:flex;gap:30px;align-items:center}
-.navlinks a{font-size:16px;font-weight:500;color:var(--slate);white-space:nowrap}
+.navlinks a{font-size:16px;font-weight:500;color:var(--body);white-space:nowrap;padding:10px 0}
 .navlinks a:hover{color:var(--b600)}
-@media(max-width:760px){ .navlinks{display:none} }
+.cta{display:inline-flex;align-items:center;background:var(--b600);color:#fff;font-weight:600;
+  font-size:15px;padding:12px 20px;border-radius:11px;transition:transform .12s,background .15s}
+.cta:hover{background:var(--b700);transform:translateY(-1px)}
+.nav .mark{padding:6px 0}
+@media(max-width:900px){ .navlinks{display:none} }
 
 /* kop van de pagina */
 .pagehead{background:var(--b050);border-bottom:1px solid var(--b100);padding:56px 0 48px}
-.pagehead .inner{max-width:var(--measure)}
+.pagehead .wrap{max-width:var(--measure)}
 .crumb{font-size:16px;font-weight:600;color:var(--b700);margin-bottom:16px;display:inline-block}
 .crumb:hover{text-decoration:underline}
 h1{font-size:clamp(30px,4.2vw,44px);line-height:1.14;letter-spacing:-.03em;font-weight:800;
@@ -59,7 +72,7 @@ h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-hei
   margin-bottom:16px;overflow-wrap:anywhere;min-width:0}
 .doc section{padding-bottom:48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
 .doc section:last-of-type{border-bottom:0;padding-bottom:0;margin-bottom:0}
-.doc p{margin-bottom:16px}
+.doc p{margin-bottom:16px;overflow-wrap:break-word}
 .doc p:last-child{margin-bottom:0}
 
 /* de twee manieren */
@@ -103,7 +116,7 @@ h2{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-.02em;line-hei
 footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
 .fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
 .fabout p{font-size:15px;color:#B9CDF5;margin-top:12px;max-width:270px;line-height:1.6}
-.fcol h4{font-size:13.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+.fcol h2{font-size:14px;line-height:1.4;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   color:#8FB4FF;margin-bottom:15px}
 .fcol a{display:block;font-size:15px;color:#DCE8FF;margin-bottom:11px;transition:color .14s}
 .fcol a:hover{color:#fff}
@@ -116,10 +129,9 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
 @media(max-width:520px){ .fgrid{grid-template-columns:1fr} }
 
 /* voettekst: grotere aanraakdoelen en leesbare kopjes */
-.fcol h4{font-size:14px}
-@media(max-width:900px){ .fcol a{padding:11px 0;margin-bottom:0} .fbottom a{display:inline-block;padding:11px 4px} }
+.fcol a{padding:10px 0;margin-bottom:0}
+.fbottom a{display:inline-block;padding:11px 4px}
 .crumb{display:inline-block;padding:11px 4px}
-.fbottom{font-size:14px}
 </style>
 </head>
 <body>
@@ -130,9 +142,11 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
     <a href="index.html" class="mark"><span class="a">Bel</span><span class="b">Safe</span></a>
     <nav class="navlinks">
       <a href="index.html#bescherming">Bescherming</a>
+      <a href="index.html#waarschuwingen">Waarschuwingen</a>
       <a href="index.html#eerlijk">Onze aanpak</a>
       <a href="index.html#app">De app</a>
     </nav>
+    <a href="index.html#app" class="cta">Bekijk de app</a>
   </div>
 </header>
 
@@ -220,7 +234,7 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
         <p>Wordt uw nummer misbruikt om anderen te bellen, meld dat dan bij de politie en bij uw
           telecomoperator. Daar kan het misbruik zelf aangepakt worden; wij zien alleen het gevolg
           ervan. Bent u het niet eens met onze beslissing over uw gegevens, dan is de
-          <a href="https://www.gegevensbeschermingsautoriteit.be/burger/acties/klacht-indienen" target="_blank" rel="noopener">Gegevensbeschermingsautoriteit</a>
+          <a href="https://www.gegevensbeschermingsautoriteit.be/burger/acties/klacht-indienen">Gegevens&shy;beschermings&shy;autoriteit</a>
           de bevoegde instantie.</p>
       </div>
     </section>
@@ -251,19 +265,20 @@ footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
         <p>Bescherming tegen telefoonfraude. Een Belgisch initiatief, gebouwd met privacy voorop.</p>
       </div>
       <div class="fcol">
-        <h4>Product</h4>
+        <h2>Product</h2>
         <a href="index.html#bescherming">Bescherming</a>
+        <a href="index.html#waarschuwingen">Waarschuwingen</a>
         <a href="index.html#eerlijk">Onze aanpak</a>
         <a href="index.html#app">De app</a>
       </div>
       <div class="fcol">
-        <h4>Juridisch</h4>
+        <h2>Juridisch</h2>
         <a href="privacybeleid.html">Privacybeleid</a>
         <a href="ten-onrechte.html" aria-current="page">Nummer ten onrechte in de lijst?</a>
         <a href="account-verwijderen.html">Account verwijderen</a>
       </div>
       <div class="fcol">
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>
         <a href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>
         <a href="mailto:info@belsafe.eu?subject=Een%20probleem%20melden">Een probleem melden</a>

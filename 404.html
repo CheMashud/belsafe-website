@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pagina niet gevonden | BelSafe</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/fonts.css">
+<style>
+:root{
+  --b600:#2563EB; --b700:#1D4ED8; --b800:#1E3A8A; --b900:#0F2260;
+  --b050:#EFF4FF; --b100:#DBE7FF; --b200:#BFD3FF;
+  --ink:#0B1220; --body:#1A2332; --slate:#4A5568; --mute:#8A94A6; --line:#E4E9F2;
+  --r:16px; --max:1140px; --measure:64ch;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);background:#fff;line-height:1.68;-webkit-font-smoothing:antialiased;
+  font-size:19px}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+.mark{font-weight:800;letter-spacing:-.025em;font-size:25px}
+.mark .a{color:var(--b600)} .mark .b{color:var(--ink)}
+.mark.inv .a{color:#8FB4FF} .mark.inv .b{color:#fff}
+:focus-visible{outline:3px solid var(--b600);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--b600);color:#fff;
+  font-weight:600;padding:10px 16px;border-radius:10px}
+.skip:focus{top:12px}
+
+/* header — identiek aan de rest van de site */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-size:16px;font-weight:500;color:var(--body);white-space:nowrap;padding:10px 0}
+.navlinks a:hover{color:var(--b600)}
+.cta{display:inline-flex;align-items:center;background:var(--b600);color:#fff;font-weight:600;
+  font-size:15px;padding:12px 20px;border-radius:11px;transition:transform .12s,background .15s}
+.cta:hover{background:var(--b700);transform:translateY(-1px)}
+.nav .mark{padding:6px 0}
+@media(max-width:900px){ .navlinks{display:none} }
+
+/* foutpagina */
+main{padding:88px 0 32px}
+.box{max-width:var(--measure)}
+h1{font-size:clamp(30px,4.2vw,44px);line-height:1.14;letter-spacing:-.03em;font-weight:800;
+  margin-bottom:16px;overflow-wrap:anywhere}
+.lead{font-size:19px;color:var(--slate);line-height:1.62;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;background:var(--b600);
+  color:#fff;font-size:18px;font-weight:700;padding:14px 28px;border-radius:14px;transition:background .15s}
+.btn:hover{background:var(--b700)}
+.hint{font-size:17px;color:var(--slate);margin-top:28px}
+.hint a{font-weight:700;color:var(--b700);border-bottom:2px solid var(--b200);display:inline-block;padding:11px 0 2px}
+.hint a:hover{border-bottom-color:var(--b700)}
+@media(max-width:520px){ main{padding:56px 0 16px} .btn{width:100%} }
+
+/* footer — identiek aan de rest van de site */
+footer{background:var(--b800);color:#fff;padding:64px 0 0;margin-top:64px}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+.fabout p{font-size:15px;color:#B9CDF5;margin-top:12px;max-width:270px;line-height:1.6}
+.fcol h2{font-size:14px;line-height:1.4;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:#8FB4FF;margin-bottom:15px}
+.fcol a{display:block;font-size:15px;color:#DCE8FF;margin-bottom:11px;transition:color .14s}
+.fcol a:hover{color:#fff}
+.fcol a[aria-current="page"]{color:#fff;font-weight:600}
+.fbottom{border-top:1px solid rgba(255,255,255,.15);padding:20px 0 26px;display:flex;
+  justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14px;color:#A8C2F0}
+.fbottom a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.fbottom a:hover{color:#fff}
+@media(max-width:900px){ .fgrid{grid-template-columns:1fr 1fr;gap:32px} }
+@media(max-width:520px){ .fgrid{grid-template-columns:1fr} }
+
+/* voettekst: grotere aanraakdoelen en leesbare kopjes */
+.fcol a{padding:10px 0;margin-bottom:0}
+.fbottom a{display:inline-block;padding:11px 4px}
+</style>
+</head>
+<body>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="mark"><span class="a">Bel</span><span class="b">Safe</span></a>
+    <nav class="navlinks">
+      <a href="/#bescherming">Bescherming</a>
+      <a href="/#waarschuwingen">Waarschuwingen</a>
+      <a href="/#eerlijk">Onze aanpak</a>
+      <a href="/#app">De app</a>
+    </nav>
+    <a href="/#app" class="cta">Bekijk de app</a>
+  </div>
+</header>
+
+<main id="inhoud">
+  <div class="wrap">
+    <div class="box">
+      <h1>Deze pagina bestaat niet</h1>
+      <p class="lead">Misschien is de link oud, of ging er iets mis bij het overnemen.</p>
+      <a href="/" class="btn">Naar de startpagina</a>
+      <p class="hint">Zoekt u iets? Mail <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fabout">
+        <div class="mark inv"><span class="a">Bel</span><span class="b">Safe</span></div>
+        <p>Bescherming tegen telefoonfraude. Een Belgisch initiatief, gebouwd met privacy voorop.</p>
+      </div>
+      <div class="fcol">
+        <h2>Product</h2>
+        <a href="/#bescherming">Bescherming</a>
+        <a href="/#waarschuwingen">Waarschuwingen</a>
+        <a href="/#eerlijk">Onze aanpak</a>
+        <a href="/#app">De app</a>
+      </div>
+      <div class="fcol">
+        <h2>Juridisch</h2>
+        <a href="/privacybeleid.html">Privacybeleid</a>
+        <a href="/ten-onrechte.html">Nummer ten onrechte in de lijst?</a>
+        <a href="/account-verwijderen.html">Account verwijderen</a>
+      </div>
+      <div class="fcol">
+        <h2>Contact</h2>
+        <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>
+        <a href="mailto:privacy@belsafe.eu">privacy@belsafe.eu</a>
+        <a href="mailto:info@belsafe.eu?subject=Een%20probleem%20melden">Een probleem melden</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>&copy; 2026 BelSafe &middot; Ondernemingsnummer&nbsp;1040.919.272 &middot; <a href="/privacybeleid.html#wie-wij-zijn">Adres</a></span>
+      <span>Gemaakt in Belgi&euml;</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

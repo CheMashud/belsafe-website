@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Familie koppelen | BelSafe</title>
 <meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="../fonts.css">
 <style>
@@ -19,8 +21,9 @@ body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI'
   background:linear-gradient(160deg,var(--b600) 0%,var(--b800) 55%,var(--b900) 100%);
   min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px}
 a{text-decoration:none;color:inherit}
-.card{background:#fff;border-radius:22px;max-width:470px;width:100%;
-  padding:40px 32px 34px;text-align:center;box-shadow:0 30px 70px rgba(4,16,54,.4)}
+.card{background:#fff;border-radius:22px;padding:40px 32px 34px;text-align:center;
+  box-shadow:0 30px 70px rgba(4,16,54,.4)}
+main{max-width:470px;width:100%}
 .badge{width:96px;height:96px;margin:0 auto 18px}
 .badge img{width:100%;height:100%;border-radius:24px;display:block}
 .mark{font-weight:800;letter-spacing:-.025em;font-size:21px;margin-bottom:20px}
@@ -31,19 +34,20 @@ p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
   font-size:19px;font-weight:800;padding:15px 20px}
 .btn:active{background:var(--b700)}
 .hint{font-size:16px;color:var(--mute);line-height:1.55;margin-top:20px}
-.hint a{color:var(--b700);font-weight:700}
+.hint a{color:var(--b700);font-weight:700;display:inline-block;padding:10px 2px}
 .legal{font-size:14px;margin-top:12px}
 [hidden]{display:none!important}
-:focus-visible{outline:3px solid #fff;outline-offset:3px}
-
-/* voettekst: aanraakdoelen en leesbare maat */
-.legal,.foot{font-size:14px}
-.legal a,.foot a{display:inline-block;padding:12px 4px}
+.legal a{padding:12px 4px}
+.foot{text-align:center;margin-top:18px;font-size:14px;color:#B9CDF5}
+.foot a{color:#DCE8FF;font-weight:600;display:inline-block;padding:12px 4px}
+:focus-visible{outline:3px solid var(--b600);outline-offset:3px;border-radius:4px}
+.foot a:focus-visible{outline-color:#fff}
 </style>
 </head>
 <body>
 
-<main class="card">
+<main>
+  <div class="card">
   <div class="badge"><img src="../logo-rond.png" alt=""></div>
   <div class="mark"><span class="a">Bel</span><span class="b">Safe</span></div>
 
@@ -60,6 +64,9 @@ p.lead{font-size:18px;color:var(--slate);line-height:1.6;margin-bottom:26px}
 
   <p class="hint">Vragen? Mail <a href="mailto:info@belsafe.eu">info@belsafe.eu</a>.</p>
   <p class="hint legal"><a href="../privacybeleid.html">Privacybeleid</a> &middot; <a href="../privacybeleid.html#wie-wij-zijn">Adres</a><br>Ondernemingsnummer&nbsp;1040.919.272</p>
+  </div>
+
+  <p class="foot"><a href="/">belsafe.eu</a> &middot; Bescherming tegen telefoonfraude</p>
 </main>
 
 <script>
